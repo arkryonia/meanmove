@@ -2,11 +2,12 @@
 * @Author: drxos
 * @Date:   2017-03-11 08:41:04
 * @Last Modified by:   Hodonou SOUNTON
-* @Last Modified time: 2017-03-11 09:08:31
+* @Last Modified time: 2017-03-11 10:53:51
 */
 
 'use strict';
-
+var mongoose = require('mongoose');
+var Post = require('./models/posts');
 
 // load a post
 exports.load = function (req, res, next, id) {
@@ -25,12 +26,26 @@ exports.index = function (req, res) {
 // GET /posts/new
 exports.new = function (req, res) {
   // render posts/new
+  res.render('blog/add')
 }
 
 // create post
 // POST /posts
 exports.create = function (req, res) {
   // render posts/new if err
+  var post = {
+  	title: req.body.title,
+  	body: req.body.body
+  };
+
+  mongoose.model("Post").create(post, function(err, posts){    
+    if (err) {
+      res.send("Error 500 ...");
+    } else {
+      res.render('blog/add');
+      // res.send(post);
+    }
+  });
   // redirect to posts/:id if created
 }
 
