@@ -28,10 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 						Declaring Applications 
 #####################################################################
 */
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/meanmove');
-
-
+require('./db').db;
 require('./blog/urls').urls(app);
 
 
