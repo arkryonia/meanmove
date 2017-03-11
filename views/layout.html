@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> {% block title %} {{ title }} {% endblock %} </title>
+
+  {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/img/favicons/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css" />
+  {% endblock %}  
+</head>
+<body>
+
+<div class="page-home">
+
+  <section>
+    <h1 class="page-title">@drxos<br>Hodonou Sounton</h1>
+    <p>Tel état de conscience tel état de vie.</p>
+  </section>
+
+  <section>
+    {% block content %}
+      
+    {% endblock %}
+  </section>
+
+  <section>
+    <article>
+      <p> ABOUT ME</p>
+      <div class="name-lockup">
+        <img class="avatar" src="/img/sounton.jpg">
+        <div class="name">
+          <strong>Hodonou SOUNTON, MSc. Ir</strong>
+          <br>
+          <a href="https://twitter.com/drxos">drxos@twitter</a>
+          <a href="https://gihub.com/drxos">drxos@github</a>
+        </div>
+      </div>
+  </article>
+  </section>
+
+
+</div>
+
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/functions.js" type="text/javascript"></script>
+</body>
+</html>
